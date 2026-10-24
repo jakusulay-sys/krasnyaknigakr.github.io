@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красная книга Кыргызстана</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <section class="title">
+            <h1>Красная книга Кыргызской Республики</h1>
+        </section>        
+
+        <section class="info-section">
+            <h2>Что такое Красная книга?</h2>
+            <p>Красная книга - это аннотированный список редких и находящихся под угрозой исчезновения или исчезнувших животных, растений и грибов.</p>
+            <p>Красная книга является основным документом, в котором обобщены материалы о современном состоянии редких и находящихся под угрозой исчезновения видов растений и животных, на основании которых проводится разработка научных и практических мер, направленных на их охрану, воспроизводство и рациональное использование.</p>
+        </section>
+
+        <section class="info-section">
+            <h2>Охранный статус</h2>
+            <p>Охранный статус - это показатель вероятности того, что биологический вид, или популяция сохранится в настоящем и будущем:</p>
+            <p>EX (Extinct) - Исчезнувшие.</p>
+            <p>LC (Least Concern) - Вызывающие наименьшие опасения (вид широко распространен и процветает).</p>
+            <img src="к.webp">
+        </section>
+
+        <main class="scroll-container">
+            <div class="card" onclick="openModal('irbis')">
+                <img src="image.jpg">
+                <div class="card-content">
+                    <div class="card-title">Снежный барс</div>
+                    <div class="card-latin">Uncia uncia</div>
+                    <button class="btn-detail">Подробнее</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bear')">
+                <img src="image2.jpg">
+                <div class="card-content">
+                    <div class="card-title">Тяньшаньский медведь</div>
+                    <div class="card-latin">Ursus arctos isabellinus</div>
+                    <button class="btn-detail">Подробнее</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eagle')">
+                <img src="image3.jpg">
+                <div class="card-content">
+                    <div class="card-title">Беркут</div>
+                    <div class="card-latin">Aquila chrysaetos</div>
+                    <button class="btn-detail">Подробнее</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('wolf')">
+                <img src="image5.jpg">
+                <div class="card-content">
+                    <div class="card-title">Красный волк</div>
+                    <div class="card-latin">Cuon alpinus</div>
+                    <button class="btn-detail">Подробнее</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tulip')">
+                <img src="image4.jpg">
+                <div class="card-content">
+                    <div class="card-title">Тюльпан Грейга</div>
+                    <div class="card-latin">Tulipa greigii</div>
+                    <button class="btn-detail">Подробнее</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="speciesModal">
+        <div class="modal-content">
+
+            <div id="mImageContainer"></div>
+
+            <h2 class="modal-title" id="mTitle"></h2>
+            <div class="modal-latin" id="mLatin"></div>
+            
+            <div class="modal-info-block">
+                <div class="modal-info-title">Охранный статус:</div>
+                <div id="mStatus"></div>
+            </div>
+            
+            <div class="modal-info-block">
+                <div class="modal-info-title">Ареал обитания:</div>
+                <div id="mArea"></div>
+            </div>
+            
+            <div class="modal-info-block">
+                <div class="modal-info-title">Лимитирующие факторы:</div>
+                <div id="mFactors"></div>
+            </div>
+            
+            <div class="modal-info-block">
+                <div class="modal-info-title">Меры охраны:</div>
+                <div id="mMeasures"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Красная книга Кыргызской Республики. Создано Сулайманом Жантаем
+    </footer>
+
+    <script>
+        const speciesData = {
+            irbis: {
+                title: 'Снежный барс (Илбирс)',
+                latin: 'Uncia uncia',
+                status: 'Исчезающий вид (CR).',
+                area: 'Высокогорные районы Тянь-Шаня и Памиро-Алая, преимущественно на скалистых участках альпийского пояса.',
+                factors: 'Браконьерство ради меха и костей, сокращение кормовой базы (горных козлов и баранов), разрушение естественной среды обитания.',
+                measures: 'Строгий запрет на охоту, создание заповедников и природных парков, международный мониторинг популяций.'
+            },
+            bear: {
+                title: 'Тяньшаньский бурый медведь',
+                latin: 'Ursus arctos isabellinus',
+                status: 'Редкий подвид под угрозой исчезновения (EW).',
+                area: 'Лесные массивы и субальпийские луга Таласского, Киргизского, Чаткальского и хребта Терскей Ала-Тоо.',
+                factors: 'Хозяйственное освоение горных территорий, выпас скота, браконьерство, фактор беспокойства со стороны человека.',
+                measures: 'Охрана в Сары-Челекском, Беш-Аральском и Нарынском заповедниках, запрет незаконного отстрела.'
+            },
+            eagle: {
+                title: 'Беркут',
+                latin: 'Aquila chrysaetos',
+                status: 'Сокращающийся в численности вид (VU).',
+                area: 'Распространен повсеместно в горных регионах республики, от предгорий до высокогорий.',
+                factors: 'Разорение гнезд, сокращение численности мелких млекопитающих (зайцев, сурков), гибель на линиях электропередач.',
+                measures: 'Защита гнездовий, пропаганда охраны пернатых хищников, штрафы за незаконный отлов для соколиной охоты.'
+            },
+            wolf: {
+                title: 'Красный волк',
+                latin: 'Cuon alpinus',
+                status: 'Находящийся под угрозой исчезновения вид (EW), возможно исчезнувший.',
+                area: 'Исторически обитал в высокогорьях Тянь-Шаня и Алайской долины, предпочитая скалистые каньоны и субальпийские зоны.',
+                factors: 'Вытеснение обыкновенным серым волком, катастрофическое уменьшение численности диких копытных животных, преследование человеком.',
+                measures: 'Включение в категорию строго охраняемых объектов, проведение целевых научных экспедиций для поиска сохранившихся очагов обитания.'
+            },
+            tulip: {
+                title: 'Тюльпан Грейга',
+                latin: 'Tulipa greigii',
+                status: 'Редкий эндемичный вид Средней Азии (VU).',
+                area: 'Склоны Киргизского и Таласского хребтов, глинистые и каменистые предгорья Чаткальского хребта.',
+                factors: 'Массовый сбор цветов населением в весенний период, интенсивный выпас скота, разрушение мест произрастания.',
+                measures: 'Полный запрет на сбор луковиц и цветов, организация микрозаказников в местах массового цветения.'
+            }
+        };
+
+        function openModal(id) {
+            const data = speciesData[id];
+            if (!data) return;
+
+            document.getElementById('mTitle').innerText = data.title;
+            document.getElementById('mLatin').innerText = data.latin;
+            document.getElementById('mStatus').innerText = data.status;
+            document.getElementById('mArea').innerText = data.area;
+            document.getElementById('mFactors').innerText = data.factors;
+            document.getElementById('mMeasures').innerText = data.measures;
+
+            const card = event.currentTarget;
+            const cardImg = card.querySelector('img');
+            const cardPlaceholder = card.querySelector('.image-placeholder');
+            const imgContainer = document.getElementById('mImageContainer');
+            
+            imgContainer.innerHTML = '';
+
+            if (cardImg) {
+                const newImg = document.createElement('img');
+                newImg.src = cardImg.src;
+                newImg.style.width = '100%';
+                newImg.style.display = 'block';
+                imgContainer.appendChild(newImg);
+            } else if (cardPlaceholder) {
+                const newPlaceholder = document.createElement('div');
+                newPlaceholder.className = 'image-placeholder';
+                newPlaceholder.innerText = cardPlaceholder.innerText;
+                imgContainer.appendChild(newPlaceholder);
+            }
+
+            document.getElementById('speciesModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('speciesModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('speciesModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
